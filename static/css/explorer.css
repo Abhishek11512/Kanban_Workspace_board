@@ -1,0 +1,77 @@
+body {
+    background-color: #fcfaff;
+    color: #2b1d42;
+    margin: 0;
+    padding: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #4a2880;
+    margin-bottom: 30px;
+}
+
+.kanban-column {
+    min-width: 280px;
+    max-width: 320px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(111, 66, 193, 0.06);
+    text-align: left;
+    min-height: 400px;
+}
+
+.gitFetchBtn {
+    padding: 10px 20px;
+    background-color: #6f42c1;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 10px;
+    box-shadow: 0 2px 4px rgba(111, 66, 193, 0.2);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gitFetchBtn:hover {
+    background-color: #5a32a3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(111, 66, 193, 0.35);
+}
+
+.gitFetchBtn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(111, 66, 193, 0.2);
+}
+
+.kanban-card {
+    padding: 15px;
+    margin: 12px 0;
+    background-color: #ffffff;
+    border-radius: 6px;
+    border-left: 5px solid #6f42c1;
+    box-shadow: 0 2px 5px rgba(111, 66, 193, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kanban-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(111, 66, 193, 0.1);
+}
+
+.badge-git {
+    display: inline-block;
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #5a32a3;
+    background-color: #ebdfff;
+    border-radius: 4px;
+    margin-top: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}

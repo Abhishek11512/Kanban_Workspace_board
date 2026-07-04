@@ -3,44 +3,33 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>KANBAN PROJECT TRACKER SYSTEM</title>
+    <title>KANBAN WORKSPACE TASK BOARD</title>
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 </head>
 
 <body>
-    <h1>My Full-Stack Kanban Workspace</h1>
-    <div style="margin-bottom: 30px;">
-        <input type="text" id="githubLinkField"
-            placeholder="Paste any GitHub profile link (e.g., https://github.com)..." style="padding: 10px; 
-        width: 450px; 
-        border-radius: 4px; 
-        border: 1px solid #ccc; 
-        font-size: 14px;">
-        <button onclick="fetchExternalGitHubProfile()" class="gitFetchBtn">Load Repositories 🚀</button>
-
-        <input type="text" id="taskField" placeholder="Enter a local task description..." style="padding: 10px;
-        width: 250px;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-        font-size: 14px;">
-        <button onclick="AddTaskToBackend()" style="padding: 10px 20px;
-        background-color: #28a745;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        font-weight: bold;
-        font-size: 14px;
-        margin-left: 5px;">Add Local Task 📝</button>
-        <div style="display: flex; justify-content: center; gap: 20px; padding: 20px;">
-            <div id="Onhold-lane" class="kanban-column"></div>
-            <div id="Ongoing-lane" class="kanban-column"></div>
-            <div id="Completed-lane" class="kanban-column"></div>
-        </div>
-
+    <div style="text-align: right; padding: 10px 30px;">
+        <a href="/explorer" class="gitFetchBtn" style="text-decoration: none; display: inline-block;">🔍 Open GitHub
+            Explorer →</a>
     </div>
 
-    <script src="{{ url_for('static', filename='js/board.js')}}"></script>
+    <h1>My Local Kanban Workspace</h1>
+
+    <div style="margin-bottom: 30px;">
+        <input type="text" id="taskField" placeholder="Enter a new local task..."
+            style="padding: 10px; width: 250px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px;">
+        <button onclick="AddTaskToBackend()"
+            style="padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px; margin-left: 5px;">Add
+            Local Task 📝</button>
+    </div>
+
+    <div style="display: flex; justify-content: center; gap: 20px; padding: 20px;">
+        <div id="Onhold-lane" class="kanban-column"></div>
+        <div id="Ongoing-lane" class="kanban-column"></div>
+        <div id="Completed-lane" class="kanban-column"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/board.js') }}"></script>
 </body>
 
 </html>
