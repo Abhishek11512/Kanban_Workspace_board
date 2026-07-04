@@ -42,5 +42,3 @@ Follow these quick steps to get the workspace running on your machine:
 4. Open your browser and navigate to `http://127.0.0.1:5000` (or your active local port).
 
 ---
-
-_Developed as part of an advanced full-stack software development portfolio._
