@@ -9,11 +9,23 @@
 
 <body>
     <h1>My Full-Stack Kanban Workspace</h1>
-    <div style=" display: flex; justify-content: center; gap:20px; padding: 20px;">
-        <div id="Onhold-lane"></div>
-        <div id="completed-lane"></div>
-        <div id="Ongoing-lane"></div>
+    <div style="margin-bottom: 30px;">
+        <input type="text" id="githubLinkField"
+            placeholder="Paste any GitHub profile link (e.g., https://github.com)..." style="padding: 10px; 
+        width: 450px; 
+        border-radius: 4px; 
+        border: 1px solid #ccc; 
+        font-size: 14px;">
+
+        <button onclick="fetchExternalGitHubProfile()" class="gitFetchBtn">Load Repositories 🚀</button>
+        <div style="display: flex; justify-content: center; gap: 20px; padding: 20px;">
+            <div id="Onhold-lane" class="kanban-column"></div>
+            <div id="Ongoing-lane" class="kanban-column"></div>
+            <div id="Completed-lane" class="kanban-column"></div>
+        </div>
+
     </div>
+
     <script src="{{ url_for('static', filename='js/board.js')}}"></script>
 </body>
 

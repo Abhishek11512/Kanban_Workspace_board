@@ -1,5 +1,6 @@
 body {
-    color: #f4f7f6;
+    background-color: #f4f7f6;
+    color: #333;
     margin: 0;
     padding: 30px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -17,7 +18,48 @@ h1 {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rpgb(0, 0, 0, 0, 0.08);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     text-align: left;
     min-height: 400px;
+}
+
+.gitFetchBtn {
+    padding: 10px 20px;
+    background-color: #6f42c1;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 10px;
+    box-shadow: 0 2px 4px rgba(111, 66, 193, 0.2);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gitFetchBtn:hover {
+    background-color: #5a32a3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(111, 66, 193, 0.35);
+}
+
+.gitFetchBtn:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 12px rgba(111, 66, 193, 0.2);
+}
+
+.kanban-card {
+    padding: 15px;
+    margin: 12px 0;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    border-left: 5px solid #6f42c1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kanban-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    background-color: #ffffff;
 }
