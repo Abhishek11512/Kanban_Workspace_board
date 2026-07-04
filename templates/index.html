@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>KANBAN PROJECT TRACKER SYSTEM</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+
+<body>
+    <h1>My Full-Stack Kanban Workspace</h1>
+    <div style=" display: flex; justify-content: center; gap:20px; padding: 20px;">
+        <div id="Onhold-lane"></div>
+        <div id="completed-lane"></div>
+        <div id="Ongoing-lane"></div>
+    </div>
+    <script src="{{ url_for('static', filename='js/board.js')}}"></script>
+</body>
+
+</html>

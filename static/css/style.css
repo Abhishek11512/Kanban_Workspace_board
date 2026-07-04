@@ -1,0 +1,23 @@
+body {
+    color: #f4f7f6;
+    margin: 0;
+    padding: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.kanban-column {
+    min-width: 280px;
+    max-width: 320px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rpgb(0, 0, 0, 0, 0.08);
+    text-align: left;
+    min-height: 400px;
+}
