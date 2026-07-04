@@ -16,8 +16,22 @@
         border-radius: 4px; 
         border: 1px solid #ccc; 
         font-size: 14px;">
-
         <button onclick="fetchExternalGitHubProfile()" class="gitFetchBtn">Load Repositories 🚀</button>
+
+        <input type="text" id="taskField" placeholder="Enter a local task description..." style="padding: 10px;
+        width: 250px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        font-size: 14px;">
+        <button onclick="AddTaskToBackend()" style="padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 14px;
+        margin-left: 5px;">Add Local Task 📝</button>
         <div style="display: flex; justify-content: center; gap: 20px; padding: 20px;">
             <div id="Onhold-lane" class="kanban-column"></div>
             <div id="Ongoing-lane" class="kanban-column"></div>
