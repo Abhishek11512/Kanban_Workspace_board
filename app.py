@@ -8,47 +8,56 @@ app = Flask(__name__)
 def main():
     return render_template('index.html')
 
-@app.route('/api/board', methods=['GET'])
-#local Sqlite3 database task
-def get_board_data():
+@app.route('/api/board', methods=['POST'])
+#local Sqlite3 database task to fetch data
+def get_dynamic_board_data():
     con = sqlite3.connect('tasks.db')
     cr = con.cursor()
     cr.execute('''SELECT id, title, status FROM tasks''')
     all_board_data = cr.fetchall()
     con.close()
-
     local_task_list = [{"id": task[0], "title": task[1], "status": task[2]} for task in all_board_data]
 
-#Fetching Github info here
-    repo_url = "https://github.com"
-    headers = {"User-Agent": "Kanban-App"}
+    #Extracting username from the link provided
+    request_data = request.get_json() or {}
+    raw_link = request_data.get('github_link', '').strip()
+    username = "Abhishek11512"
 
+    if "github.com/" in raw_link:
+        username = raw_link.split("github.com/")[-1].split("/")[0].strip()
+
+#Fetching Github info here
+    repo_url = f"https://api.github.com/users/{username}/repos"
+    headers = {"User-Agent": "Kanban-App"}
     github_projects_list = []
 
     try:
         response = requests.get(repo_url, headers=headers)
         all_repos = response.json()
 
-        for repo in all_repos:
-            repo_name = repo.get("name")
+        if isinstance(all_repos, list):
+            for repo in all_repos:
+                repo_name = repo.get("name")
 
-            topics_url = f"https://github.com{repo_name}/topics"
-            topics_res = requests.get(topics_url, headers=headers)
-            topics_list = topics_res.json().get('names', [])
+                is_fork = repo.get("fork", False)
+                has_stars = repo.get("stargazers_count", 0) > 0
 
-            if "completed" in topics_list:
-                tracker_status = "Completed"
-            elif "onhold" in topics_list: 
-                tracker_status = "Onhold"
-            else:
-                tracker_status = "Ongoing"
+                if has_stars and not is_fork:
+                    tracker_status = "Completed"
+                elif is_fork: 
+                    tracker_status = "Onhold"
+                else:
+                    tracker_status = "Ongoing"
     
-            github_projects_list.append({
-                "name": repo_name.replace("_", " ").title(),
-                "status": tracker_status
-            })
+                github_projects_list.append({
+                    "name": repo_name.replace("_", " ").replace("-", " ").title(),
+                    "status": tracker_status
+                })
+        else:
+            print(f"API API Feedback Notice: {all_repos}")
+
     except Exception as e:
-        print("\n❌ CRITICAL API FAILURE CLUE:", e, "\n")
+        print(f"❌ API Speed Sync Failure: {e}")
         github_projects_list = []
 
     master_payload = {
