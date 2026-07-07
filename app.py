@@ -27,7 +27,7 @@ def get_dynamic_github_data():
     request_data = request.get_json() or {}
     raw_link = request_data.get('github_link', '').strip()
     
-    username = "abhishek11512"
+    username = ""
 
     if "github.com/" in raw_link:
         username = raw_link.split("github.com/")[-1].split("/")[0].strip()
